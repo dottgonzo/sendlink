@@ -10,6 +10,7 @@ if(!time){
     var remoteDB=PouchDB(url);
         remoteDB.get('linkstatus').then(function(doc){
           doc.updatedAt=new Date().getTime();
+        doc.dbtype="linkstatus";
           remoteDB.put(doc);
           verb("new document","info","updating the state");
         }).catch(function(err){
