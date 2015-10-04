@@ -2,15 +2,22 @@ var timerdaemon=require('timerdaemon'),
 verb=require('verbo'),
 PouchDB=require('pouchdb');
 
-module.exports = function(url,time) {
-if(!time){
+module.exports = function(url,json) {
+if(!json||!json.time){
   time=300000;//5 minuti
+} else{
+  time=json.time;//5 minuti
 }
+if(!json||!json.over){
+  over=json.over;//5 minuti
+} else{
+
+}
+
   timerdaemon.pre(time,function(){
     var remoteDB=PouchDB(url);
         remoteDB.get('linkstatus').then(function(doc){
           doc.updatedAt=new Date().getTime();
-        doc.dbtype="linkstatus";
           remoteDB.put(doc);
           verb("new document","info","updating the state");
         }).catch(function(err){
