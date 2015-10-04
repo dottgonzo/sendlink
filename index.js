@@ -20,7 +20,7 @@ module.exports = function(url,json) {
 
 
 if(!json||!json.time){
-  time=300000;//5 minuti
+  time=5000;//5 minuti
 } else{
   time=json.time;//5 minuti
 }
@@ -45,7 +45,7 @@ if(!json||!json.time){
         remoteDB.get(over._id).then(function(doc){
           over.updatedAt=new Date().getTime();
           remoteDB.put(over);
-          verb("new document","info","updating the state");
+          verb("update","info","Sendlink");
         }).catch(function(err){
 
           if (err.status==404) {
