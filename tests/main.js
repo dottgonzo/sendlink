@@ -2,7 +2,7 @@ var sendlink=require('../index.js'),
 verb=require('verbo'),
 PouchDB=require('pouchdb'),
 timerdaemon=require('timerdaemon'),
-testdb='testdb';
+testdb='dbtest';
 
 sendlink(testdb,{time:5000,over:{_id:"sggss"}});
 
