@@ -19,7 +19,7 @@ module.exports = function(url,json) {
 
 
 if(!json||!json.time){
-  time=5000;//5 minuti
+  time=300000;//5 minuti
 } else{
   time=json.time;//5 minuti
 }
