@@ -61,7 +61,7 @@ if(!json||!json.time){
 
             })
           } else{
-            verb("can't get the document","error","Getting document");
+            verb("can't get the db","error","Getting document");
           }
         })
 
