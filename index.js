@@ -42,8 +42,9 @@ if(!json||!json.time){
 
 
         remoteDB.get(over._id).then(function(doc){
-          over.updatedAt=new Date().getTime();
-          remoteDB.put(over).then(function(){
+          overr(doc,over);
+          doc.updatedAt=new Date().getTime();
+          remoteDB.put(doc).then(function(){
             verb("update","info","Sendlink");
           }).catch(function(err){
             verb(err,"error","Sendlink")
