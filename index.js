@@ -1,8 +1,7 @@
 var timerdaemon=require('timerdaemon'),
 verb=require('verbo'),
 PouchDB=require('pouchdb'),
-diff=require('deep-diff'),
-Promise = require('promise');
+diff=require('deep-diff');
 
 
 function overr(data,overrides){
@@ -44,14 +43,15 @@ if(!json||!json.time){
 
         remoteDB.get(over._id).then(function(doc){
           over.updatedAt=new Date().getTime();
-          remoteDB.put(over);
-          verb("update","info","Sendlink");
+          remoteDB.put(over).then(function(){
+            verb("update","info","Sendlink");
+          });
         }).catch(function(err){
 
           if (err.status==404) {
             over.updatedAt=new Date().getTime();
-            remoteDB.put(over).catch(function(err){
-              verb("cannot put","error","Sendlink")
+            remoteDB.put(over).then(function(){
+              verb("update","info","Sendlink");
             }).catch(function(err){
               verb(err,"error","Sendlink")
 

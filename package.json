@@ -20,7 +20,6 @@
   "dependencies": {
     "deep-diff": "^0.3.2",
     "pouchdb": "^4.0.3",
-    "promise": "^7.0.4",
     "timerdaemon": "0.0.2",
     "verbo": "0.0.7"
   }
