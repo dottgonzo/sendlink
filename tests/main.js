@@ -4,7 +4,7 @@ PouchDB=require('pouchdb'),
 timerdaemon=require('timerdaemon'),
 testdb='dbtest';
 
-sendlink(testdb,{time:5000,over:{_id:"sggss"}});
+sendlink(testdb,{time:5000,over:{_id:"sss"}});
 
 timerdaemon.pre(5000,function(){
 
